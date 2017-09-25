@@ -1,6 +1,11 @@
 <?php
 session_start();
 //include('connect.php');
+include('base.php');
+
+// csrf protection
+require_once('nocsrf.php');
+$csrftoken = NoCSRF::generate( 'csrf' );
 ?>
 <!DOCTYPE html>
 <html lang="en">

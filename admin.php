@@ -8,7 +8,7 @@ $connect = mysqli_connect('localhost','root','','teachers');
 $sql = "SELECT * FROM `personal info` WHERE email = '$email' "; //potentially vulnerable to SQL injection
 $result = mysqli_query($connect,$sql);
 $assoc = mysqli_fetch_assoc($result);
-if($assoc['approved'] == 'N'){
+if($assoc['approved'] == 'N' || $assoc['role'] == "user"){
 	echo "You don't have permissions to access this page";
 	header('Location: do_login.php');
 }
